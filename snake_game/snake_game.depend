@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1698780713 source:d:\codeblocks\snake_game\main.c
+	<GL/gl.h>
+	<GL/glut.h>
+
