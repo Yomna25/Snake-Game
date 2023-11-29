@@ -34,7 +34,7 @@ void unit(int x, int y) //one closed square will formed
         glColor3f(1.0,1.0,1.0);//set the color of the line to be white
     }
 
-    glBegin(GL_LINE_LOOP);  //line_loop mean connected ends
+    glBegin(GL_POLYGON);  //line_loop mean connected ends
         glVertex2f(x,y); //first point of the square
         glVertex2f(x+1,y); //second point
         glVertex2f(x+1,y+1);//third point
