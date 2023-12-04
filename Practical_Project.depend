@@ -18,7 +18,7 @@
 
 1701330644 d:\newsnakegame\snake-game\game.h
 
-1701330644 source:d:\newsnakegame\snake-game\main.c
+1701417111 source:d:\newsnakegame\snake-game\main.c
 	<GL/gl.h>
 	<GL/glut.h>
 	"game.h"
