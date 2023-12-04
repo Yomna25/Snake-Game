@@ -23,3 +23,15 @@
 	<GL/glut.h>
 	"game.h"
 
+1701706479 source:c:\users\ism\onedrive\desktop\graphic\snake-game\game.c
+	<GL/gl.h>
+	<GL/glut.h>
+	"game.h"
+
+1701714643 c:\users\ism\onedrive\desktop\graphic\snake-game\game.h
+
+1701714082 source:c:\users\ism\onedrive\desktop\graphic\snake-game\main.c
+	<GL/gl.h>
+	<GL/glut.h>
+	"game.h"
+

@@ -7,6 +7,8 @@
 #define FPS 10
 
 extern short sDirection ;
+int gameOver=0;
+
 
 void timer_callback(int);
 void display_callback();
@@ -39,7 +41,13 @@ void display_callback(){
 	glClear(GL_COLOR_BUFFER_BIT);
 	drawGrid(); //display the grid every time the screen shown
     drawSnake() ;
+    drawFood();
     glutSwapBuffers();
+    if(gameOver)
+    {
+        MessageBox(NULL,"Your Score : ","GAME OVER",0);
+        exit(0);
+    }
 }
 
 void reshape_callback(int w, int h){
@@ -78,3 +86,5 @@ void keyboard_callback(int key , int k1 , int k2){
     }
 
 }
+
+

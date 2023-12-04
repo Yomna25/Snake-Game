@@ -1,11 +1,15 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
+#include <ctime>
 #include "game.h"
 
 int gridx, gridy;
+int food =1;
+int foodX,foodY;
 short sDirection  = RIGHT ;
+extern int gameOver;
 
-int posX = 20  , posY = 20  ;
+int posX= 20  , posY = 20  ;
 
 void initGrid(int x, int y)//initialize the grid coordinates
 {
@@ -44,6 +48,15 @@ void unit(int x, int y) //one closed square will formed
         glVertex2f(x,y+1); //forth point
     glEnd();
 }
+void drawFood()
+{
+
+    if(food)
+        random(foodX,foodY);
+    food=0;
+    glRectf(foodX,foodY,foodX+1,foodY+1);
+
+}
 
 void drawSnake()
 {
@@ -55,10 +68,25 @@ void drawSnake()
         posX++;
     else if(sDirection == LEFT)
         posX--;
+        glColor3f(0.0,1.0,0.0);
     glRectd(posX , posY , posX+1 , posY+1);
+    if(posX==0 || posX == gridx-1 || posY ==0 || posY == gridy-1)
+        gameOver=1;
+        if (posX==foodX && posY==foodY)
+            food=1;
 
 }
 
+void random(int &x,int&y)
+{
+    int _maxX = gridx-2;
+    int _maxY = gridy-2
+    int _min=1;
+    srand(time(NULL));
+    x= _min+rand()% (_maxX-_min);
+    y= _min+rand()% (_maxY-_min);
+
+}
 
 
 
