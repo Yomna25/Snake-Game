@@ -91,7 +91,7 @@ void drawSnake()
            score++;
            snake_length++;
            if(snake_length>MAX)
-             snake_length=MAX;
+             snake_length = MAX;
            food=1;
         }
 
