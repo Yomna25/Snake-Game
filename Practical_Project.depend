@@ -35,3 +35,17 @@
 	<GL/glut.h>
 	"game.h"
 
+1701820911 source:e:\project\snake-game\game.c
+	<GL/gl.h>
+	<GL/glut.h>
+	<time.h>
+	"game.h"
+
+1701818820 e:\project\snake-game\game.h
+
+1701820918 source:e:\project\snake-game\main.c
+	<GL/gl.h>
+	<GL/glut.h>
+	"game.h"
+	<stdlib.h>
+

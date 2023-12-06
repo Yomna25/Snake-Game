@@ -1,6 +1,7 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include "game.h"
+#include <stdlib.h>
 
 #define COLUMNS 40
 #define ROWS 40
@@ -9,6 +10,7 @@
 extern short sDirection ;
 int gameOver=0;
 
+int score = 0;
 
 void timer_callback(int);
 void display_callback();
@@ -45,7 +47,11 @@ void display_callback(){
     glutSwapBuffers();
     if(gameOver)
     {
-        MessageBox(NULL,"Your Score : ","GAME OVER",0);
+        char _score[10];
+        itoa(score,_score,10);
+        char text[50]= "your score: ";
+        strcat(text,_score);
+       // MessageBox(NULL,text,"Your Score : ","GAME OVER",0);
         exit(0);
     }
 }

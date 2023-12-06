@@ -1,15 +1,18 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
-#include <ctime>
+#include <time.h>
 #include "game.h"
 
+extern int score;
+
 int gridx, gridy;
+int snake_length = 5;
 int food =1;
 int foodX,foodY;
 short sDirection  = RIGHT ;
 extern int gameOver;
 
-int posX= 20  , posY = 20  ;
+int posX[60]={20,20,20,20,20} , posY[60]={20,19,18,17,16};
 
 void initGrid(int x, int y)//initialize the grid coordinates
 {
@@ -60,20 +63,38 @@ void drawFood()
 
 void drawSnake()
 {
+    for(int i=snake_length-1;i>0;i--)
+        {
+        posX[i]=posX[i-1];
+        posY[i]=posY[i-1];
+    }
     if(sDirection == UP)
-        posY++ ;
+        posY[0]++ ;
     else if(sDirection == DOWN)
-        posY--;
+        posY[0]--;
     else if(sDirection == RIGHT)
-        posX++;
+        posX[0]++;
     else if(sDirection == LEFT)
-        posX--;
-        glColor3f(0.0,1.0,0.0);
-    glRectd(posX , posY , posX+1 , posY+1);
-    if(posX==0 || posX == gridx-1 || posY ==0 || posY == gridy-1)
+        posX[0]--;
+    for(int i=0;i<snake_length;i++)
+        {
+        if(i == 0)
+            glColor3f(0.0,1.0,0.0);
+        else
+            glColor3f(0.0,0.0,1.0);
+            glRectd(posX[i] , posY[i] , posX[i]+1 , posY[i]+1);
+    }
+    if(posX[0]==0 || posX[0] == gridx-1 || posY[0] ==0 || posY[0] == gridy-1)
         gameOver=1;
-        if (posX==foodX && posY==foodY)
-            food=1;
+        if (posX[0]==foodX && posY[0]==foodY)
+        {
+           score++;
+           snake_length++;
+           if(snake_length>MAX)
+             snake_length=MAX;
+           food=1;
+        }
+
 
 }
 
